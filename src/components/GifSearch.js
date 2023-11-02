@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GifList from './GifList';
 
 export default function GifSearch({ onSearch }) {
   const [searchQuery, setSearchQuery] = useState(''); 
@@ -18,14 +19,15 @@ export default function GifSearch({ onSearch }) {
     <div>
       <h2>Gif Search</h2>
       <form onSubmit={handleSubmit}>
-     <input
-     type="text"
-     placeholder="Search for GIFs"
-     value={searchQuery} 
-     onChange={handleInputChange} 
-     />
-     <button type="submit">Search</button>
-     </form>
+      <input
+      type="text"
+      placeholder="Search for GIFs"
+      value={searchQuery} 
+      onChange={handleInputChange} 
+      />
+      <button type="submit">Search</button>
+      </form>
     </div>
   );
 }
+
