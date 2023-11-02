@@ -6,11 +6,12 @@ function App() {
   return (
     <div>
       <NavBar color="black" title="Giphy Search" />
-      <GifListContainer /> {/* Use GifListContainer component */}
+      <GifListContainer />
     </div>
   );
 }
 
 export default App;
+
 
 

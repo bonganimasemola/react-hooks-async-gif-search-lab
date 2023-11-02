@@ -41,7 +41,7 @@ function GifList({ gifs }) {
    <img src={gif.images.fixed_height.url} alt={gif.title} />
     </li>
     ))}
-    </ul>
+      </ul>
     </div>
   );
 }
