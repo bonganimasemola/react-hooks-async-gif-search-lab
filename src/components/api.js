@@ -13,7 +13,7 @@ export async function getDolphinGifs() {
       }
   
       const data = await response.json();
-      return data.data; // Extract and return the array of GIF data
+      return data.data; 
     } catch (error) {
       console.error(error);
       return [];
