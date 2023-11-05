@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { getDolphinGifs } from './api';
-import GifSearch from './GifSearch'; 
+import GifSearch from './GifSearch';
+import { getGifs } from './api'; // Updated import for getGifs
 
 class GifListContainer extends Component {
   constructor(props) {
@@ -11,19 +11,18 @@ class GifListContainer extends Component {
   }
 
   async componentDidMount() {
-    try {
-      const gifData = await getDolphinGifs();
-      const firstThreeGifs = gifData.slice(0, 3);
-
-      this.setState({ gifs: firstThreeGifs });
-    } catch (error) {
-      console.error(error);
-    }
+    this.performSearch();
   }
 
-  
   handleSearch = async (searchQuery) => {
+    this.performSearch(searchQuery);
+  };
+
+  performSearch = async (searchQuery = 'dolphin') => {
     try {
+      const gifData = await getGifs(searchQuery); 
+      const firstThreeGifs = gifData.slice(0, 3);
+      this.setState({ gifs: firstThreeGifs });
     } catch (error) {
       console.error(error);
     }
@@ -31,10 +30,10 @@ class GifListContainer extends Component {
 
   render() {
     return (
-      <div>
-        <GifSearch onSearch={this.handleSearch} />
-        <GifList gifs={this.state.gifs} />
-      </div>
+   <div>
+    <GifSearch onSearch={this.handleSearch} searchTerm="dolphin" />
+    <GifList gifs={this.state.gifs} />
+    </div>
     );
   }
 }
@@ -48,7 +47,7 @@ function GifList({ gifs }) {
       <li key={gif.id}>
       <img src={gif.images.fixed_height.url} alt={gif.title} />
       </li>
-      ))}
+        ))}
       </ul>
     </div>
   );

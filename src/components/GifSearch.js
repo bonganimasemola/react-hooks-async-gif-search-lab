@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-// import GifList from './GifList';
 
-export default function GifSearch({ onSearch }) {
-  const [searchQuery, setSearchQuery] = useState(''); 
+export default function GifSearch({ onSearch, searchTerm }) {
+  const [searchQuery, setSearchQuery] = useState(searchTerm);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
-
-   
+    event.preventDefault();
     onSearch(searchQuery);
   };
 
@@ -19,13 +16,13 @@ export default function GifSearch({ onSearch }) {
     <div>
       <h2>Gif Search</h2>
       <form onSubmit={handleSubmit}>
-      <input
-      type="text"
-      placeholder="Search for GIFs"
-      value={searchQuery} 
-      onChange={handleInputChange} 
-      />
-      <button type="submit">Search</button>
+        <input
+          type="text"
+          placeholder="Search for GIFs"
+          value={searchQuery}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Search</button>
       </form>
     </div>
   );
