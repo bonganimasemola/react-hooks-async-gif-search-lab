@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GifList from './GifList';
+// import GifList from './GifList';
 
 export default function GifSearch({ onSearch }) {
   const [searchQuery, setSearchQuery] = useState(''); 

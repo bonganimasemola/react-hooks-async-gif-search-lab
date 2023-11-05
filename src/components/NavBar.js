@@ -9,9 +9,9 @@ function NavBar({ color, title }) {
   return (
     <nav className={`navbar ${colors[color]}`}>
       <div className="container-fluid">
-        <div className="navbar-header">
-          <span className="navbar-brand">{title}</span>
-        </div>
+      <div className="navbar-header">
+      <span className="navbar-brand">{title}</span>
+      </div>
       </div>
     </nav>
   );
